@@ -1,0 +1,52 @@
+package app.srpass.kykfz01.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+// Brand palette (used sparingly; the default theme is a neutral grey scheme).
+val BrandIndigo = Color(0xFF4F5BD5)
+val BrandViolet = Color(0xFF6E63D6)
+val BrandTeal = Color(0xFF0E9C95)
+
+// ---- Light (neutral grey fallback) ---------------------------------------
+val LightPrimary = Color(0xFF3C3C3C)
+val LightOnPrimary = Color(0xFFFFFFFF)
+val LightPrimaryContainer = Color(0xFFE4E4E4)
+val LightOnPrimaryContainer = Color(0xFF1F1F1F)
+val LightSecondary = Color(0xFF5C5C5C)
+val LightOnSecondary = Color(0xFFFFFFFF)
+val LightSecondaryContainer = Color(0xFFE2E2E2)
+val LightOnSecondaryContainer = Color(0xFF1F1F1F)
+val LightTertiary = Color(0xFF4A4A4A)
+val LightOnTertiary = Color(0xFFFFFFFF)
+val LightTertiaryContainer = Color(0xFFE0E0E0)
+val LightOnTertiaryContainer = Color(0xFF1F1F1F)
+val LightBackground = Color(0xFFFAFAFA)
+val LightOnBackground = Color(0xFF1B1B1B)
+val LightSurface = Color(0xFFFAFAFA)
+val LightOnSurface = Color(0xFF1B1B1B)
+val LightSurfaceVariant = Color(0xFFE8E8E8)
+val LightOnSurfaceVariant = Color(0xFF4A4A4A)
+val LightOutline = Color(0xFF9A9A9A)
+val LightError = Color(0xFFBA1A1A)
+
+// ---- Dark (neutral grey fallback) ----------------------------------------
+val DarkPrimary = Color(0xFFD6D6D6)
+val DarkOnPrimary = Color(0xFF2A2A2A)
+val DarkPrimaryContainer = Color(0xFF3C3C3C)
+val DarkOnPrimaryContainer = Color(0xFFE8E8E8)
+val DarkSecondary = Color(0xFFBFBFBF)
+val DarkOnSecondary = Color(0xFF2A2A2A)
+val DarkSecondaryContainer = Color(0xFF3A3A3A)
+val DarkOnSecondaryContainer = Color(0xFFE8E8E8)
+val DarkTertiary = Color(0xFFB0B0B0)
+val DarkOnTertiary = Color(0xFF2A2A2A)
+val DarkTertiaryContainer = Color(0xFF3A3A3A)
+val DarkOnTertiaryContainer = Color(0xFFE8E8E8)
+val DarkBackground = Color(0xFF121212)
+val DarkOnBackground = Color(0xFFE8E8E8)
+val DarkSurface = Color(0xFF121212)
+val DarkOnSurface = Color(0xFFE8E8E8)
+val DarkSurfaceVariant = Color(0xFF2A2A2A)
+val DarkOnSurfaceVariant = Color(0xFFC2C2C2)
+val DarkOutline = Color(0xFF8A8A8A)
+val DarkError = Color(0xFFFFB4AB)

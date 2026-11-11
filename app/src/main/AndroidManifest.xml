@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        SrPass is a fully offline password manager: the encrypted vault never
+        leaves the device and the app does not declare any network permission.
+        The three strip declarations below keep it that way even if a
+        third-party library ever declares them, so the final APK cannot get
+        network access.
+
+        Note: XML comments must not contain a double hyphen, so this text
+        deliberately avoids writing one.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" tools:node="remove" />
+
+    <!-- Required (API 34+) to let the notes module browse and insert the full album. -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <!--
+        Android 11~12 (API 30~32) 没有细粒度的 READ_MEDIA_IMAGES，相册导入
+        走这一条；API 33+ 上自动失效（maxSdkVersion 封顶）。
+    -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <!--
+        Only used to scan an authenticator QR code (otpauth://...). Frames are
+        decoded in memory and dropped immediately: nothing is stored, and no
+        data leaves the device.
+    -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--
+        Android 14 partial access. Must be declared: an undeclared permission is
+        silently denied at request time, which removes the "选择照片" option from
+        the runtime dialog and leaves users with all-or-nothing access only.
+    -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+    <!--
+        只用于笔记里的录音：按下录音键时才申请，音频以 AAC 存进 KDBX 二进制
+        池（随库一起加密），不出设备。除此之外没有任何地方用到麦克风。
+    -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:name=".SrPassApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SrPass">
+
+        <!--
+            android:screenOrientation is deliberately NOT set.
+            Targeting API 37 (Android 17) forbids locking orientation or aspect
+            ratio on large screens (sw >= 600dp). Leaving it unspecified follows
+            the user's device preference and complies on tablets / foldables.
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
